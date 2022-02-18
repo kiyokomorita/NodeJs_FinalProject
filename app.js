@@ -31,7 +31,7 @@ main().catch(err => {
 
 const app = express();
 
-app.engine('ejs', ejsMate);
+// app.engine('ejs', ejsMate);
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'))
 
@@ -69,13 +69,14 @@ app.use((req,res, next)=>{
 })
 
 
+app.get('/', (req, res)=>{
+  res.render('home')
+})
+
 app.use('/', userRoutes);
 app.use('/touristspots', touristspotRoutes)
 app.use('/touristspots/:id/reviews',reviewRoutes)
 
-app.get('/', (req, res)=>{
-  res.render('home')
-})
 
 
 
