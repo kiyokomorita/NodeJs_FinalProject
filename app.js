@@ -31,7 +31,7 @@ main().catch(err => {
 
 const app = express();
 
-// app.engine('ejs', ejsMate);
+app.engine('ejs', ejsMate);
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'))
 
@@ -92,7 +92,7 @@ app.use((err, req, res, next)=>{
   res.status(statusCode).render('error', {err})
   
 })
-
-app.listen(3000, ()=>{
+const PORT = process.env.PORT || 3000
+app.listen(PORT, ()=>{
   console.log('Serving on port 3000')
 })
