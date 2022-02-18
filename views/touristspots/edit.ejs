@@ -1,0 +1,57 @@
+<% layout('layouts/boilerplate') %> 
+  
+  <div class="row">
+    <h1 class="text-center">Edit Touristspot</h1>
+    <div class="col-6 offset-3">
+      <form action="/touristspots/<%=touristspot._id%>?_method=PUT " method="POST" novalidate class="validated-form">
+        <div class="mb-3">
+          <label class="form-label" for="title">Title</label>
+          <input class="form-control" type="text" id="title" name="touristspot[title]"  value="<%=touristspot.title %> " required  >
+          <div class="valid-feedback">
+            Looks Good!
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="location">Location</label>
+          <input class="form-control" type="text" id="location" name="touristspot[location]"  value="<%=touristspot.location %> "required >
+          <div class="valid-feedback">
+            Looks Good!
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="image">Image Url</label>
+          <input class="form-control" type="text" id="image" name="touristspot[image]" value="<%=touristspot.image %> " required>
+          <div class="valid-feedback">
+            Looks Good!
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="price">Touristspot Price</label>
+        <div class="input-group">
+          <span class="input-group-text" id="basic-addon1">$</span>
+          <input type="text" class="form-control" id="price-label" placeholder="0.00" aria-label="price" aria-describedby="price-label" name="touristspot[price]"  value="<%=touristspot.price %> " required>
+          <div class="valid-feedback">
+            Looks Good!
+          </div>
+        </div>
+      </div>
+        <div class="mb-3">
+          <label class="form-label" for="description">description </label>
+          <textarea class="form-control" type="text" id="description" name="touristspot[description]"required><%= touristspot.description %> </textarea>
+          <div class="valid-feedback">
+            Looks Good!
+          </div>
+        </div>
+  
+        
+        <div class="mb-3">
+          <button class="btn btn-primary">Update Touristspot</button>
+        </div>
+        
+      </form>
+      <a href="/touristspots<%= touristspot._id %> ">Back to Touristspots</a>
+      
+    
+    </div>
+  </div>
+  
